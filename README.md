@@ -1,2 +1,7 @@
-# info201-group-project
-it is a group project.
+# info201 Group Project
+
+## Project Description:
+The dataset that we are going to use for our project is about **police killings in 2015** from the website _fivethirtyeight_. In the dataset that they compiled, they linked entries from the database on police killings from _the Guardian_, a primary British newspaper, with census information from the _American Community Survey_. This results in a dataset that merges specific information about the police killings such as a street address and the law enforcement agency that had jurisdiction with the demographic information of the specific location where the killing took place. Our target audience would be everyday people of voting age. Due to the politics surrounding police killings and gun violence, it is crucial that this information and the possible correlations in the data are communicated in a way that allows any individual of this age to formulate their opinions from seeing this information visually and through a new lens. Our audience most like wants to see relationships and trends in the data to make sense of the devastating killings and the underlying details surrounding their occurrences. We aim to investigate and answer these questions and more:
+- Is the correlation between the number of killings and the ethnicity of the individual the same throughout the country?
+- Does the victim being armed or not armed affect different ethnicities differently in terms of the frequency of killings?
+- Which gender, age range, and race was the most killed by police this year?
