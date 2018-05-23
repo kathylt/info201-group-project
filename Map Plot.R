@@ -12,7 +12,7 @@ killings_data <- read.csv("police_killings.csv", stringsAsFactors = F)
 
 killings_data$raceethnicity <- factor(killings_data$raceethnicity,
                                       levels = c("Black", "White", "Hispanic/Latino",
-                                      "Asian/Pacific Islander"), labels = c("red", "blue", "green", "black"))
+                                      "Asian/Pacific Islander"), labels = c("darkred", "midnightblue", "paleturquoise4", "lightsalmon3"))
                    
 killings_data$gender <- factor(killings_data$gender,
                     levels = c("Male", "Female"),
