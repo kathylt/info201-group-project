@@ -25,7 +25,7 @@ others from places historically under the poverty line. Some were students, pare
                          tags$h6("Hover for more details about each specific killing."),
                          # Input to select variable to map
                          selectInput(
-                           "shooting_var",
+                           "map_var",
                            label = "Variable to Color Each Point",
                            choices = list(
                              "Race/Ethnicity" = "raceethnicity",
@@ -37,7 +37,7 @@ others from places historically under the poverty line. Some were students, pare
                        
                        # Main panel: display plotly map
                        mainPanel(
-                         plotlyOutput("Map"),
+                         leafletOutput("Map"),
                          #tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
                          #tags$div(class = "summary", checked = NA,
                                   tags$p("This map shows each killing at the hands of police in 2015. The selected

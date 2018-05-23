@@ -5,52 +5,30 @@ library(RColorBrewer)
 library(stringr)
 
 
-
 Sys.setlocale(category = "LC_ALL", locale = "C")
+df <- read.csv("police_killings.csv", stringsAsFactors = F)
 
-killings_data <- read.csv("police_killings.csv", stringsAsFactors = F)
+build_map_static <- function(df) {
+library(leaflet)
 
-killings_data$raceethnicity <- factor(killings_data$raceethnicity,
-                                      levels = c("Black", "White", "Hispanic/Latino",
-                                      "Asian/Pacific Islander"), labels = c("darkred", "midnightblue", "paleturquoise4", "lightsalmon3"))
-                   
-killings_data$gender <- factor(killings_data$gender,
-                    levels = c("Male", "Female"),
-                    labels = c("red", "blue"))
+df$raceethnicity <- factor(df$raceethnicity, levels = c("Black", "White", "Hispanic/Latino",
+                                                        "Asian/Pacific Islander"))
+df$gender <- factor(killings_data1$gender,
+                    levels = c("Male", "Female"))
 
-killings_data$cause <- factor(killings_data$cause,
-                              levels = c("Gunshot", "Taser", "Death in custody", "Struck by vehicle"),
-                              labels = c("red", "blue", "green", "black"))
+df$cause <- factor(killings_data1$cause,
+                   levels = c("Gunshot", "Taser", "Death in custody", "Struck by vehicle"))
 
 
-build_map <- function(df) {
-  
-  g <- list(
-    scope = "usa",
-    projection = list(type = "albers usa"),
-    showland = TRUE,
-    landcolor = toRGB("gray85"),
-    subunitwidth = 1,
-    countrywidth = 1,
-    subunitcolor = toRGB("white"),
-    countrycolor = toRGB("white")
-  )
-
-  p <- plot_geo(df, locationmode = "USA-states") %>%
-    add_markers(
-      x = df$longitude, y = df$latitude,
-      color = ~I(df$raceethnicity),
-      text = paste0(df$name, "
-                    ", df$city, ", ",df$state, "
-                    ", df$month, " ", df$day),
-        marker = list(
-        size = 5,
-        mode = "markers"
-      )) %>%
-    colorbar(title = "hi") %>% 
-    layout(title = "Police Killings in 2015", geo = g)
-  
-  p
+factpal <- colorFactor(topo.colors(4), df[, map_var])
+  map <- leaflet(df) %>% 
+    addTiles() %>% 
+  addCircleMarkers(radius = 1, label = paste0(df$name,"
+",df$city, ", ", df$state,"
+", df$month," ", df$day), color = ~factpal(map_var), opacity = .7) %>% 
+    addLegend(position = "bottomleft", pal = factpal, values = ~map_var,
+              title = str_to_title(map_var), na.label = "Not Collected")
+  map
 }
 
-build_map(killings_data)
+build_map(df)
