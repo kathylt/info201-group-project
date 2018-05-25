@@ -15,13 +15,13 @@ others from places historically under the poverty line. Some were students, pare
                  the relationships between these factors will reveal themselves."),
                    # Create a tab panel for your map
                    tabPanel(
-                     "Map",
+                     "Bubble Map",
                      # Create sidebar layout
                      sidebarLayout(
                        
                        # Side panel for controls
                        sidebarPanel(
-                         tags$h3("All Police Killings in 2015"),
+                         tags$h5("All Police Killings in 2015"),
                          tags$h6("Hover for more details about each specific killing."),
                          # Input to select variable to map
                          selectInput(
@@ -38,17 +38,15 @@ others from places historically under the poverty line. Some were students, pare
                        # Main panel: display plotly map
                        mainPanel(
                          leafletOutput("Map"),
-                         #tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-                         #tags$div(class = "summary", checked = NA,
-                                  tags$p("This map shows each killing at the hands of police in 2015. The selected
+                                   tags$p("This map shows each killing at the hands of police in 2015. The selected
                                          variable will affect the color of each point representing each killing with the
-                                         legend provided to the right.")
-                                  )
-                   )
+                                         legend provided to the left.")
+                       )
+                     )
                    ),
-                   tabPanel("other",
-                            tags$h1("Filler page")
-                   )
+                   tabPanel("Another page",
+                     h1("filler page")
+                      )
                    
-                   # Create a tabPanel to show your scatter plot
+                   
                      ))
