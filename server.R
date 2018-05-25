@@ -15,8 +15,9 @@ df$cause <- factor(df$cause,
 
 shinyServer(function(input, output) { 
   
+
   # Render a plotly object that returns your map
   output$Map <- renderLeaflet({ 
-    return(build_map(df))
+    return(build_map(df, input$map_var))
   })
 })
