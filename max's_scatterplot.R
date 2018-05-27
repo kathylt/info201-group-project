@@ -5,11 +5,11 @@ library(ggExtra)
 police_killings <- read.csv("police_killings.csv")
 
 
-max_plot_1 <- function(df) {
-	p <- ggplot(police_killings, aes(as.numeric(county_income), as.numeric(share_white), color = armed)) +
+max_plot_1 <- function(df, input_x, input_y, input_color) {
+	p <- ggplot(police_killings, aes(as.numeric(input_x), as.numeric(input_y), color = input_color)) +
   		geom_point() +
-  		xlim(0, max(as.numeric(police_killings$county_income))) +
-  		ylim(0, max(as.numeric(police_killings$share_white))) +
+  		xlim(0, max(as.numeric(police_killings[[input_x]]))) +
+  		ylim(0, max(as.numeric(police_killings[[input_y]]))) +
   		xlab() +
   		ylab()
 
@@ -20,5 +20,5 @@ max_plot_1 <- function(df) {
 
 
 max_plot_2 <- function(df) {
-
+	p <- ggplot()
 }

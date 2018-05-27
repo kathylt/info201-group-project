@@ -44,6 +44,48 @@ others from places historically under the poverty line. Some were students, pare
                        )
                      )
                    ),
+                   tabPanel("Scatterplot",
+                     sidebarLayout(
+                      sidebarPanel(
+                        tags$h6("Explore the data"),
+                        selectInput(
+                          "scatter_x_var",
+                          label = "County data on the x-axis",
+                          choices = list(
+                             "Population" = "pop",
+                             "Average Income" = "county_income",
+                             "Victim's Income : County Average" = "comp_income",
+                             "Percentage of White" = "share_white",
+                             "Percentage of Black" = "share_black",
+                             "Percentage of Hispanic" = "share_hispanic",
+                             "Percentage of College" = "college"
+                            )
+                          ),
+                        selectInput(
+                          "scatter_y_var",
+                          label = "County data on the y-axis",
+                          choices = list(
+                             "Population" = "pop",
+                             "Average Income" = "county_income",
+                             "Victim's Income : County Average" = "comp_income",
+                             "Percentage of White" = "share_white",
+                             "Percentage of Black" = "share_black",
+                             "Percentage of Hispanic" = "share_hispanic",
+                             "Percentage of College" = "college"
+                            )
+                          ),
+                        selectInput(
+                          "scatter_color_var",
+                          label = "Variable to color each point",
+                          choices = list(
+                            "Armed" = "armed",
+                            "Race/Ethnicity" = "raceethnicity",
+                            "Gender" = "gender")),
+                        ),
+                      mainPanel(
+                        plotOutput(scatter_1))
+                      )
+                    ),
                    tabPanel("Another page",
                      h1("filler page")
                       )
