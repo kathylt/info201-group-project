@@ -1,6 +1,7 @@
 library(dplyr)
 library(leaflet)
 source("Map Plot.R")
+source("max's_scatterplot.R")
 
 df <- read.csv("police_killings.csv", stringsAsFactors = F)
 
