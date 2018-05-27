@@ -10,8 +10,8 @@ max_plot_1 <- function(df, input_x, input_y, input_color) {
   		geom_point() +
   		xlim(0, max(as.numeric(police_killings[[input_x]]))) +
   		ylim(0, max(as.numeric(police_killings[[input_y]]))) +
-  		xlab() +
-  		ylab()
+  		xlab(input_x) +
+  		ylab(input_y)
 
   	p <- ggMarginal(p, type = "histogram")
 

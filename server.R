@@ -20,4 +20,7 @@ shinyServer(function(input, output) {
   output$Map <- renderLeaflet({ 
     return(build_map(df, input$map_var))
   })
+
+  output$scatter_1 <- reanderPlot({
+  	max_plot_1(df, input$scatter_x_var, input$scatter_y_var, input$scatter_color_var)})
 })
