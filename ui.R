@@ -26,7 +26,7 @@ others from places historically under the poverty line. Some were students, pare
                          # Input to select variable to map
                          selectInput(
                            "map_var",
-                           label = "Variable to Color Each Point",
+                           label = "Variable to color each point",
                            choices = list(
                              "Race/Ethnicity" = "raceethnicity",
                              "Gender" = "gender",
@@ -80,10 +80,10 @@ others from places historically under the poverty line. Some were students, pare
                           choices = list(
                             "Armed" = "armed",
                             "Race/Ethnicity" = "raceethnicity",
-                            "Gender" = "gender")),
+                            "Gender" = "gender"))
                         ),
                       mainPanel(
-                        plotOutput(scatter_1))
+                        plotOutput("scatter_1"))
                       )
                     ),
                    tabPanel("Another page",

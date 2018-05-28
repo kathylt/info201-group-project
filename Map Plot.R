@@ -26,5 +26,5 @@ factpal <- colorFactor(brewer.pal(4, "Dark2"), df[, variable])
     addLegend(position = "bottomleft", pal = factpal, values = ~unique(df[,variable]), title = variable, na.label = "Not Collected")
   map
 }
-build_map(df, "gender")
+
 
