@@ -47,7 +47,8 @@ others from places historically under the poverty line. Some were students, pare
                    tabPanel("Scatterplot",
                      sidebarLayout(
                       sidebarPanel(
-                        tags$h6("Explore the data"),
+                        tags$h5("Explore the data:"),
+                        tags$h6("Create a Scatterplot"),
                         selectInput(
                           "scatter_x_var",
                           label = "County data on the x-axis",
@@ -83,8 +84,11 @@ others from places historically under the poverty line. Some were students, pare
                             "Gender" = "gender"))
                         ),
                       mainPanel(
-                        plotOutput("scatter_1"))
+                        plotOutput("scatter_1"),
+                      tags$p("Create a scatterplot with demographic values of your choice on the x axis and the y axis.
+                             Then, view the distribution of the values with the histograms depicted above/underneath.")
                       )
+                     )
                     ),
                    tabPanel("Another page",
                      h1("filler page")
