@@ -1,7 +1,7 @@
 library(shiny)
 library(plotly)
 library(shinythemes)
-shinyUI(navbarPage(theme = shinytheme("paper"),
+shinyUI(navbarPage(theme = shinytheme("journal"),
         "Who Police Killed and Where in 2015",
          tags$h3("In 2015..."),
          tags$p("Police killed 467 Americans. Some came from opulent backgrounds,
@@ -66,8 +66,8 @@ others from places historically under the poverty line. Some were students, pare
                           "scatter_y_var",
                           label = "County data on the y-axis",
                           choices = list(
-                             "Population" = "pop",
                              "Average Income" = "county_income",
+                             "Population" = "pop",
                              "Victim's Income : County Average" = "comp_income",
                              "Percentage of White" = "share_white",
                              "Percentage of Black" = "share_black",
