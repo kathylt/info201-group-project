@@ -66,8 +66,8 @@ others from places historically under the poverty line. Some were students, pare
                           "scatter_y_var",
                           label = "County data on the y-axis",
                           choices = list(
-                             "Population" = "pop",
                              "Average Income" = "county_income",
+                             "Population" = "pop",
                              "Victim's Income : County Average" = "comp_income",
                              "Percentage of White" = "share_white",
                              "Percentage of Black" = "share_black",
