@@ -1,7 +1,7 @@
 library(shiny)
 library(plotly)
 library(shinythemes)
-shinyUI(navbarPage(theme = shinytheme("paper"),
+shinyUI(navbarPage(theme = shinytheme("journal"),
         "Who Police Killed and Where in 2015",
          tags$h3("In 2015..."),
          tags$p("Police killed 467 Americans. Some came from opulent backgrounds,
