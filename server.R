@@ -2,6 +2,7 @@ library(dplyr)
 library(leaflet)
 source("Map Plot.R")
 source("max's_scatterplot.R")
+source("James' map.R")
 
 df <- read.csv("police_killings.csv", stringsAsFactors = F)
 
@@ -24,5 +25,9 @@ shinyServer(function(input, output) {
 
   output$scatter_1 <- renderPlot({
   	return(max_plot_1(df, input$scatter_x_var, input$scatter_y_var, input$scatter_color_var))
+  })
+  
+  output$Map2 <- renderPlot ({
+    return(make_choropleth(df, input$race))
   })
 })

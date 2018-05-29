@@ -90,8 +90,20 @@ others from places historically under the poverty line. Some were students, pare
                       )
                      )
                     ),
-                   tabPanel("Another page",
-                     h1("filler page")
+                   tabPanel("Choropleth Map",
+                     h5("filler page"),
+                     sidebarLayout(
+                       sidebarPanel(
+                         helpText("Create demographic maps with 
+                                  information from the police Killings in US."),
+                         selectInput("race",
+                                     label = "Choose a race/ethnicity to display",
+                                     choices = c("White", "Black", "Hispanic/Latino", "Asian/Pacific Islander"),
+                                     selected = 1
+                         )
+                         ),
+                       mainPanel(plotOutput("Map2"))
+                   )
                       )
                    
                    
