@@ -12,7 +12,9 @@ make_choropleth <- function(df, race_selected) {
     df_mod <- df_mod[!is.na(df_mod$region), ]
     choro_map <- state_choropleth(df_mod,
                      title = paste0("Police Killings In US (", race_selected, ")"),
-                     legend = "number of people", num_colors = 5
-    )
+                     legend = "Number of Victims", num_colors = 9)
+
+
     return(choro_map)
 }
+

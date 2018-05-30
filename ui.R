@@ -3,6 +3,8 @@ library(plotly)
 library(shinythemes)
 shinyUI(navbarPage(theme = shinytheme("journal"),
         "Who Police Killed and Where in 2015",
+        tabPanel(
+         "Introduction",
          tags$h3("In 2015..."),
          tags$p("Police killed 467 Americans. Some came from opulent backgrounds,
 others from places historically under the poverty line. Some were students, parents, or employees. Some were young, old, or somewhere
@@ -13,16 +15,18 @@ others from places historically under the poverty line. Some were students, pare
                  be a part of a bigger puzzle, to try to find clarity and make sense of the devastating killings that have occured. By exploring and representation facets of the victim's 
                  background and the demographics surrounding the location of the killing, we hope that
                  the relationships between these factors will reveal themselves."),
-                   # Create a tab panel for your map
+         tags$p("Here is a link to the dataset:"),
+         tags$a(href = " https://github.com/fivethirtyeight/data/tree/master/police-killings",
+                "Police Killings in 2015")
+        ),  
+                    # Create a tab panel bubble map
                    tabPanel(
                      "Bubble Map",
                      # Create sidebar layout
                      sidebarLayout(
-                       
-                       # Side panel for controls
                        sidebarPanel(
-                         tags$h5("All Police Killings in 2015"),
-                         tags$h6("Hover for more details about each specific killing."),
+                         tags$h3("Map of All Police Killings in 2015"),
+                         helpText("Hover for more details about each specific killing."),
                          # Input to select variable to map
                          selectInput(
                            "map_var",
@@ -34,32 +38,33 @@ others from places historically under the poverty line. Some were students, pare
                            )
                          )
                        ),
-                       
-                       # Main panel: display plotly map
                        mainPanel(
                          leafletOutput("Map"),
                                    tags$p("This map shows each killing at the hands of police in 2015. The selected
                                          variable will affect the color of each point representing each killing with the
-                                         legend provided to the left.")
+                                         legend provided to the left. The hover information details the name of the victim 
+                                          along with the city and state where the killing occurred.")
                        )
                      )
                    ),
+        
+                    #tab panel for scatterplot
                    tabPanel("Scatterplot",
                      sidebarLayout(
                       sidebarPanel(
-                        tags$h5("Explore the data:"),
-                        tags$h6("Create a Scatterplot"),
+                        tags$h3("Explore the data: Create a Scatterplot"),
+                        helpText("Choose which census data to display on each axis.
+                                 The census data pertains to the county where each killing occured."),
                         selectInput(
                           "scatter_x_var",
                           label = "County data on the x-axis",
                           choices = list(
                              "Population" = "pop",
                              "Average Income" = "county_income",
-                             "Victim's Income : County Average" = "comp_income",
                              "Percentage of White" = "share_white",
                              "Percentage of Black" = "share_black",
                              "Percentage of Hispanic" = "share_hispanic",
-                             "Percentage of College" = "college"
+                             "Percentage of College Educated" = "college"
                             )
                           ),
                         selectInput(
@@ -68,11 +73,10 @@ others from places historically under the poverty line. Some were students, pare
                           choices = list(
                              "Average Income" = "county_income",
                              "Population" = "pop",
-                             "Victim's Income : County Average" = "comp_income",
                              "Percentage of White" = "share_white",
                              "Percentage of Black" = "share_black",
                              "Percentage of Hispanic" = "share_hispanic",
-                             "Percentage of College" = "college"
+                             "Percentage of College Educated" = "college"
                             )
                           ),
                         selectInput(
@@ -85,26 +89,34 @@ others from places historically under the poverty line. Some were students, pare
                         ),
                       mainPanel(
                         plotOutput("scatter_1"),
-                      tags$p("Create a scatterplot with demographic values of your choice on the x axis and the y axis.
-                             Then, view the distribution of the values with the histograms depicted above/underneath.")
+                      tags$p("Above is a scatterplot with the chosen demographic values of the counties of each killing on the x axis and the y axis.
+                             View the distribution of the values with the histograms depicted above/underneath.")
                       )
                      )
                     ),
+        
+                  #tab panel for choropleth map
                    tabPanel("Choropleth Map",
-                     h5("filler page"),
+                     h3("Choropleth Map: Number of Victims per Race/Ethnicity"),
                      sidebarLayout(
                        sidebarPanel(
-                         helpText("Create demographic maps with 
-                                  information from the police Killings in US."),
+                         helpText("Create choropleth map that shows the distribution of victim counts
+                                  by the race/ethnicity selected."),
                          selectInput("race",
                                      label = "Choose a race/ethnicity to display",
                                      choices = c("White", "Black", "Hispanic/Latino", "Asian/Pacific Islander"),
                                      selected = 1
                          )
                          ),
-                       mainPanel(plotOutput("Map2"))
-                   )
+                       mainPanel(plotOutput("Map2"),
+                        tags$p("Above is a choropleth map detailing the distribution of victims
+                               of the selected race/ethnicity across the country. The darker the shade of
+                               blue, the greater the number of victims. In circumstances where there were
+                               no victims of that race/ethnicity killed in that state or that information
+                               was not available, NA is represented in black.")
+                        )
                       )
+                    )
                    
-                   
-                     ))
+                  )
+               )

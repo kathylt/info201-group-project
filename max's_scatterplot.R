@@ -11,10 +11,10 @@ max_plot_1 <- function(df, input_x, input_y, input_color) {
   		xlim(0, max(as.numeric(df[[input_x]]), na.rm = T)) +
   		ylim(0, max(as.numeric(df[[input_y]]), na.rm = T)) +
   		xlab(input_x) +
-  		ylab(input_y)
-
+  		ylab(input_y) +
+	    labs(color=paste(input_color)) 
+	 
   	p <- ggMarginal(p, type = "histogram")
-
   	return(p)
 }
 
@@ -22,4 +22,5 @@ max_plot_1 <- function(df, input_x, input_y, input_color) {
 max_plot_2 <- function(df) {
 	p <- ggplot()
 }
+
 
