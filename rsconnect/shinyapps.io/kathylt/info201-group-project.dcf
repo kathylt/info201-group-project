@@ -5,8 +5,8 @@ account: kathylt
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 350876
-bundleId: 1399504
+bundleId: 1399794
 url: https://kathylt.shinyapps.io/info201-group-project/
-when: 1527640138.83376
+when: 1527662778.20385
 asMultiple: FALSE
 asStatic: FALSE

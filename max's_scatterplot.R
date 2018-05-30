@@ -19,8 +19,4 @@ max_plot_1 <- function(df, input_x, input_y, input_color) {
 }
 
 
-max_plot_2 <- function(df) {
-	p <- ggplot()
-}
-
 

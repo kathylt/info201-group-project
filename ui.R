@@ -1,5 +1,6 @@
 library(shiny)
 library(plotly)
+library(leaflet)
 library(shinythemes)
 shinyUI(navbarPage(theme = shinytheme("journal"),
         "Who Police Killed and Where in 2015",

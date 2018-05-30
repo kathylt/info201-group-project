@@ -1,9 +1,5 @@
 library(dplyr)
-library(ggplot2)
-library(plotly)
 library(RColorBrewer)
-library(stringr)
-
 library(leaflet)
 
 Sys.setlocale(category = "LC_ALL", locale = "C")
